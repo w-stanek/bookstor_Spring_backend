@@ -34,12 +34,11 @@ public class CRUDtestApplication {
 	}
 	@Bean
 	public DatabaseStartupValidator databaseStartupValidator(DataSource dataSource) {
-		var dsv = new DatabaseStartupValidator();
-		dsv.setDataSource((javax.sql.DataSource) dataSource);
+		DatabaseStartupValidator dsv = new DatabaseStartupValidator();
+		dsv.setDataSource(dataSource);
 		dsv.setTimeout(60);
 		dsv.setInterval(7);
 		dsv.setValidationQuery(DatabaseDriver.MYSQL.getValidationQuery());
-		
 		return dsv;
 	}
 }
